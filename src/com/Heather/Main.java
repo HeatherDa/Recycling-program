@@ -5,8 +5,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         //Recycling program.  Identify house with most recycling and house with least.  Allow for duplicates.
-        Scanner scan = new Scanner(System.in);
-        String maxstring = "";
         int total = 0;
         int count = 0;
         int max = 0;
@@ -16,8 +14,7 @@ public class Main {
         HashMap<Integer, Integer> minhash = new HashMap<>();
         HashMap<Integer, Integer> maxhash = new HashMap<>();
         HashMap<Integer, Integer>housecrates=new HashMap<>();
-        try ( FileReader reader = new FileReader("recyclingreport-mainstreet.txt");
-              BufferedReader bufReader = new BufferedReader(reader)) {
+        try ( FileReader reader = new FileReader("recyclingreport-mainstreet.txt")) {
             housecrates = readfile("recyclingreport-mainstreet.txt");
         }catch(FileNotFoundException ioe) {
             System.out.println("File cannot be found.");
@@ -99,7 +96,6 @@ public class Main {
         BufferedReader bufReader = new BufferedReader(reader);
         String line = bufReader.readLine();
         HashMap<Integer, Integer> crates = new HashMap<>();
-        ArrayList<Integer> housecratenum = new ArrayList<>();
         while (line != null) {
             String[] linetext = line.split(" ");
             crates.put(Integer.parseInt(linetext[1]), Integer.parseInt(linetext[3]));
