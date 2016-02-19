@@ -14,7 +14,8 @@ public class Main {
         HashMap<Integer, Integer> minhash = new HashMap<>();
         HashMap<Integer, Integer> maxhash = new HashMap<>();
         HashMap<Integer, Integer>housecrates=new HashMap<>();
-        try ( FileReader reader = new FileReader("recyclingreport-mainstreet.txt")) {
+        try ( FileReader reader = new FileReader("recyclingreport-mainstreet.txt");
+              BufferedReader bufReader = new BufferedReader(reader)) {
             housecrates = readfile("recyclingreport-mainstreet.txt");
         }catch(FileNotFoundException ioe) {
             System.out.println("File cannot be found.");
